@@ -1,5 +1,7 @@
 package com.alphacoder.alogorithm.util;
 
+import java.util.Arrays;
+
 public class BinarySearch {
     private BinarySearch(){
 
@@ -30,5 +32,23 @@ public class BinarySearch {
         }
         return count;
 
+    }
+
+    public static int binarySearchRecursively(int[] arr, int start, int end,int element){
+        int count= -1;
+
+        if(start>end){
+            return count;
+        }
+        int middle= start+(end-start)/2;
+
+        if(arr[middle]== element){
+            count= middle;
+        }else if(arr[middle]< element){
+            return binarySearchRecursively(arr, middle+1, end, element);
+        }else if(arr[middle]> element){
+            return binarySearchRecursively(arr, start, middle-1, element);
+        }
+        return count;
     }
 }
